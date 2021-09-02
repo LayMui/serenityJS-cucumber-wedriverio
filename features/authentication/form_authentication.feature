@@ -1,3 +1,4 @@
+@web
 Feature: Form-Based Authentication
 
   In order to learn how to use Serenity/JS with Cucumber and WebdriverIO

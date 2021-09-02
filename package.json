@@ -6,8 +6,12 @@
   "scripts": {
     "postinstall": "serenity-bdd update",
     "clean": "rimraf target",
-    "test": "failsafe clean test:execute test:report",
-    "test:execute": "wdio wdio.conf.ts",
+    "test-ios": "failsafe clean test-ios:execute test:report",
+    "test-web": "failsafe clean test-web:execute test:report",
+    "test-form": "failsafe clean test-form:execute test:report",
+    "test-ios:execute": "wdio config/wdio.ios.app.conf.ts",
+    "test-web:execute": "wdio config/wdio.conf.web.ts",
+    "test-form:execute": "wdio config/wdio.conf.form.ts",
     "test:report": "serenity-bdd run --features ./features",
     "lint": "eslint --ext ts --config .eslintrc.js .",
     "lint:fix": "npm run lint -- --fix"
@@ -42,24 +46,29 @@
     "@serenity-js/rest": "^2.31.0",
     "@serenity-js/serenity-bdd": "^2.31.0",
     "@serenity-js/webdriverio": "^2.31.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "@wdio/appium-service": "^7.10.1",
     "@wdio/cli": "^7.10.1",
     "@wdio/cucumber-framework": "^7.10.1",
     "@wdio/local-runner": "^7.10.1",
     "@wdio/spec-reporter": "^7.10.1",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
     "chromedriver": "^92.0.1",
-    "expect-webdriverio": "^3.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unicorn": "^35.0.0",
     "eslint-plugin-unused-imports": "^1.1.4",
+    "expect-webdriverio": "^3.1.1",
     "is-ci": "^3.0.0",
     "npm-failsafe": "^0.4.3",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5",
+    "wdio-appium-service": "^0.2.3",
     "wdio-chromedriver-service": "^7.2.0"
+  },
+  "dependencies": {
+    "appium": "^1.21.0"
   }
 }
